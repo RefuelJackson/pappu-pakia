@@ -32,6 +32,7 @@ mit.main = function() {
   var ui = mit.ui = {
     body: $('body'),
     score_board: $('#score_board'),
+    nyan_score: $('#nyan_score'),
     last_score: $('#last_score'),
     high_score: $('#high_score'),
     start_screen: $('#start_screen'),
@@ -141,6 +142,7 @@ mit.main = function() {
 
     // reset score
     mit.score = 0;
+    mit.nyanScore = 0;
 
     // Nuke all forks
     mit.ForkUtils.forks = [];
@@ -173,6 +175,7 @@ mit.main = function() {
 
   // Score Board
   mit.score = 0;
+  mit.nyanScore = 0;
   try {
 
     mit.highScore = JSON.parse(localStorage.getItem("highScore"));
@@ -416,6 +419,7 @@ mit.main = function() {
       if (!mit.game_over) {
         mit.score = mit.score += 0.1;
         ui.score_board.text(parseInt(mit.score));
+        ui.nyan_score.text(parseInt(mit.nyanScore));
       }
 
       // Acceleration + Gravity

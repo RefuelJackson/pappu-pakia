@@ -51,7 +51,8 @@
     plank_top : "img/plank_top.png",
     sad_pakia : "img/sad_pakia.png",
     stand : "img/stand.png",
-    star : "img/star.png"
+    star : "img/star.png",
+    nyanObject : "img/rainbow.png"
   };
 
   mit.image = {};

@@ -59,6 +59,10 @@
           this.drawInvincible(ctx);
           break;
 
+        case 'nyanObject':
+          this.drawNyanObject(ctx);
+          break;
+
       }
 
       return;
@@ -92,6 +96,14 @@
         this.y
       );
     };
+
+    this.drawNyanObject = function(ctx) {
+      ctx.drawImage(
+        mit.CollectibleUtils.nyanObject_img,
+        this.x,
+        this.y
+      );
+    };
   };
 
 
@@ -101,7 +113,7 @@
 
     count: 2,
 
-    types: ['coin', 'clone', 'invincible'],
+    types: ['coin', 'clone', 'invincible', 'nyanObject'],
     //types: ['invincible'],
 
     sub_types: {
@@ -120,6 +132,8 @@
       // this.invincible_img = new Image();
       // this.invincible_img.src = 'img/star.png';
       this.invincible_img = mit.image.star;
+
+      this.nyanObject_img = mit.image.nyanObject;
     },
 
     getCoinSpritePos: function(sub_type) {
@@ -277,7 +291,10 @@
 
             // Show timer
             mit.ui.invincible_timer.show();
+            break;
 
+          case 'nyanObject':
+            mit.nyanScore += 1;
             break;
         }
 
