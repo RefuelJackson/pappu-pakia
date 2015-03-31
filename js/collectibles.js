@@ -59,8 +59,8 @@
           this.drawInvincible(ctx);
           break;
 
-        case 'nyanObject':
-          this.drawNyanObject(ctx);
+        case 'nyan':
+          this.drawNyan(ctx);
           break;
 
       }
@@ -96,10 +96,10 @@
         this.y
       );
     };
-
-    this.drawNyanObject = function(ctx) {
+  
+    this.drawNyan = function(ctx) {
       ctx.drawImage(
-        mit.CollectibleUtils.nyanObject_img,
+        mit.CollectibleUtils.nyan_img,
         this.x,
         this.y
       );
@@ -113,7 +113,9 @@
 
     count: 2,
 
-    types: ['coin', 'clone', 'invincible', 'nyanObject'],
+
+    types: ['coin', 'clone', 'invincible', 'nyan'],
+
     //types: ['invincible'],
 
     sub_types: {
@@ -133,7 +135,8 @@
       // this.invincible_img.src = 'img/star.png';
       this.invincible_img = mit.image.star;
 
-      this.nyanObject_img = mit.image.nyanObject;
+      //rainbow powerup
+      this.nyan_img = mit.image.rainbow;
     },
 
     getCoinSpritePos: function(sub_type) {
@@ -216,12 +219,13 @@
 
         // Type
         collec.type = this.types[utils.randomNumber(0, this.types.length-1)];
+        //collec.type = this.types[3];
 
         // Choosing Sub types if any
         sub_types = this.sub_types[collec.type];
         if (sub_types)
           collec.sub_type = sub_types[utils.randomNumber(0, sub_types.length-1)];
-
+          //collec.sub_type = sub_types[3];
         this.collecs.push(collec);
       }
     },
@@ -293,9 +297,17 @@
             mit.ui.invincible_timer.show();
             break;
 
-          case 'nyanObject':
+          case 'nyan':
             mit.nyanScore += 1;
+            mit.Pappu.invincible = 1;
+
+            mit.Pappu.invincibility_start = new Date().getTime();
+            mit.Pappu.invincibility_time = 5000;
+
+            // Show timer
+            mit.ui.invincible_timer.show();
             break;
+
         }
 
         // Nuke the collectible

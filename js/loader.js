@@ -52,7 +52,7 @@
     sad_pakia : "img/sad_pakia.png",
     stand : "img/stand.png",
     star : "img/star.png",
-    nyanObject : "img/rainbow.png"
+    rainbow: "img/rainbow.png"
   };
 
   mit.image = {};
