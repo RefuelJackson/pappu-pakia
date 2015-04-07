@@ -219,7 +219,7 @@
 
         // Type
         collec.type = this.types[utils.randomNumber(0, this.types.length-1)];
-        //collec.type = this.types[3];
+        collec.type = this.types[3];
 
         // Choosing Sub types if any
         sub_types = this.sub_types[collec.type];
@@ -299,14 +299,21 @@
 
           case 'nyan':
             mit.nyanScore += 1;
-            mit.Pappu.invincible = 1;
 
-            mit.Pappu.invincibility_start = new Date().getTime();
-            mit.Pappu.invincibility_time = 5000;
+            if (mit.nyanScore == 3){
+              mit.Pappu.nyanMode = 1;
+              mit.nyanScore = 0;
 
-            // Show timer
-            mit.ui.invincible_timer.show();
-            break;
+              mit.Pappu.invincible = 1;
+
+              mit.Pappu.invincibility_start = new Date().getTime();
+              mit.Pappu.invincibility_time = 5000;
+
+              // Show timer
+              mit.ui.invincible_timer.show();
+              break;
+
+            }
 
         }
 

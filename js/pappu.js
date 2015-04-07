@@ -9,6 +9,10 @@
     h: 50,
 
     invincible: 0,
+    nyanMode: 0,
+    pappuHeight: 60,
+    nyanHeight: 130,
+    nyanAttributes: 0,
     invincibility_start: 0,
     invincibility_time: 0,
     clones: [],
@@ -32,10 +36,11 @@
       // this.sprite = new Image();
       // this.sprite.src = 'img/pappu.png';
       this.sprite = mit.image.pappu;
+     // this.sprite = mit.image.nyancat;
 
       //pappu.w = pappu.sprite.width;
       mit.Pappu.w = mit.Pappu.sprite.width;
-      mit.Pappu.h = 60;
+      mit.Pappu.h = this.pappuHeight;
 
       // Sprite Frame Count
       mit.Pappu.max_fly_frame_count = 8;
@@ -58,19 +63,41 @@
       mit.ui.invincible_timer.hide();
     },
 
+    undoNyanMode: function(){
+      this.nyanMode = 0;
+      this.nyanMode_start = 0;
+      this.nyanMode_timer = 0;
+
+      mit.ui.nyanMode_timer.hide();
+
+    },
+
+    applyNyanAttributes: function(){
+      this.sprite = mit.image.nyancat;
+      this.nyanAttributes = 1;
+
+      mit.Pappu.w = mit.Pappu.sprite.width;
+      mit.Pappu.h = this.nyanHeight;
+
+      mit.Pappu.max_fly_frame_count = 12;
+      mit.Pappu.max_fly_frame_count--;
+
+    },
+
     draw: function(ctx) {
       var cur_sprite_frame = this.fly_frame_count / this.change_per_frame;
       
       if (utils.isInt(cur_sprite_frame)) {
-        var source_y = cur_sprite_frame * 60;
+        var source_y= cur_sprite_frame * ((!this.nyanMode) ? this.pappuHeight : this.nyanHeight);
+       
       }
 
       else {
-        //var old_sprite_frame = parseInt(this.fly_frame_count/this.change_per_frame)%this.change_per_frame;
-
+     
         // Ultra smooth animations
         var old_sprite_frame = parseInt(this.fly_frame_count/this.change_per_frame)
-        var source_y = old_sprite_frame * 60;
+        var source_y= old_sprite_frame * ((!this.nyanMode) ? this.pappuHeight : this.nyanHeight);
+
       }
       
       // console.log(cur_sprite_frame, source_x);
@@ -119,16 +146,34 @@
         // console.log(timer_progress)
       }
 
+      if (this.nyanMode){
+        //console.debug("Sprite : " + this.sprite);
+
+        if (this.nyanAttributes == 0){
+          this.applyNyanAttributes();
+        }
+        // Current time
+        var cur_time = new Date().getTime();
+        var time_diff = cur_time - this.nyanMode_start;
+
+        var timer_progress = (time_diff/this.nyanMode_time) * 100;
+
+        if (timer_progress > 100)
+          this.undoNyanMode();
+        else
+          mit.ui.invincible_loader.css('width', timer_progress + '%');       
+      }
+
       ctx.drawImage(
           this.sprite,
           0,
           source_y,
           this.w,
-          60,
+          ((!this.nyanMode) ? this.pappuHeight : this.nyanHeight),
           -this.w/2,
           -this.h/2,
           this.w,
-          60
+          ((!this.nyanMode) ? this.pappuHeight : this.nyanHeight)
         );
 
       ctx.restore();
@@ -138,7 +183,7 @@
       var cur_sprite_frame = this.fly_frame_count / this.change_per_frame;
       
       if (utils.isInt(cur_sprite_frame)) {
-        var source_y = cur_sprite_frame * 60;
+        var source_y = cur_sprite_frame * ((!this.nyanMode) ? this.pappuHeight : this.nyanHeight);
       }
 
       else {
@@ -146,7 +191,7 @@
 
         // Ultra smooth animations
         var old_sprite_frame = parseInt(this.fly_frame_count/this.change_per_frame)
-        var source_y = old_sprite_frame * 60;
+        var source_y = old_sprite_frame * ((!this.nyanMode) ? this.pappuHeight : this.nyanHeight);
       }
 
 
