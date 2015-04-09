@@ -91,7 +91,6 @@
 
 
     tranformToNyan: function(){
-      this.nyanMode = 1;
       this.nyanMode_start = new Date().getTime();
       this.nyanMode_time = 5000;
 
@@ -101,6 +100,7 @@
     },
 
     nyanInitSprite: function(){
+      this.nyanMode = 1;
 
       this.sprite = mit.image.nyancat;
       this.nyanAttributes = 1;

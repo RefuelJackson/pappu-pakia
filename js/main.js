@@ -323,6 +323,7 @@ mit.main = function() {
 
     // Pappu if invincible will be no morez
     mit.Pappu.undoInvincible();
+    mit.Pappu.undoNyanMode();
 
     // Nuke all clones
     mit.Pappu.clones.length = 0;
@@ -405,11 +406,15 @@ mit.main = function() {
       mit.Pappu.drawClones(ctx);
 
       // Check Collisions with pappu
-      if (!mit.Pappu.invincible) {
+      if (!mit.Pappu.nyanMode && !mit.Pappu.invincible) {
+        //alert("not invincible or not nyan mode");
         mit.ForkUtils.checkCollision();
         mit.BranchUtils.checkCollision();
         mit.PakiaUtils.checkCollision();
       }
+
+
+
       mit.CollectibleUtils.checkCollision();
       mit.Pappu.checkCloneCollision();
 

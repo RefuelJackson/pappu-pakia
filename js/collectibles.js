@@ -11,7 +11,7 @@
   - One for pappu's invincibility
   */
 
-  const RAINBOWS_MAX = 2;
+  const RAINBOWS_MAX = 1;
 
   mit.Collectible = function() {
 
@@ -221,7 +221,7 @@
 
         // Type
         collec.type = this.types[utils.randomNumber(0, this.types.length-1)];
-        collec.type = this.types[2];
+        collec.type = this.types[3];
 
         // Choosing Sub types if any
         sub_types = this.sub_types[collec.type];
