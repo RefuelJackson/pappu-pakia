@@ -12,7 +12,8 @@
     nyanMode: 0,
     pappuHeight: 60,
     nyanHeight: 130,
-    nyanAttributes: 0,
+    nyanMode_start: 0,
+    nyanMode_time: 0,
     invincibility_start: 0,
     invincibility_time: 0,
     clones: [],
@@ -32,7 +33,19 @@
     init: function() {
       this.sound = document.getElementById("flap");
 
-      // Initializing Pappu Sprite, lolzzz..!
+      this.pappuMode();
+      // Sprite Frame Change Speed.
+      // This will affect the flap speed.
+      // 1.6 is the perfect value!
+      mit.Pappu.change_per_frame = 1.6;
+
+      // X Pos
+      mit.Pappu.x = 33;
+    },
+
+    pappuMode: function(){
+
+       // Initializing Pappu Sprite, lolzzz..!
       // this.sprite = new Image();
       // this.sprite.src = 'img/pappu.png';
       this.sprite = mit.image.pappu;
@@ -46,13 +59,6 @@
       mit.Pappu.max_fly_frame_count = 8;
       mit.Pappu.max_fly_frame_count--;
 
-      // Sprite Frame Change Speed.
-      // This will affect the flap speed.
-      // 1.6 is the perfect value!
-      mit.Pappu.change_per_frame = 1.6;
-
-      // X Pos
-      mit.Pappu.x = 33;
     },
 
     undoInvincible: function() {
@@ -64,15 +70,38 @@
     },
 
     undoNyanMode: function(){
+      this.pappuMode();
       this.nyanMode = 0;
       this.nyanMode_start = 0;
       this.nyanMode_timer = 0;
+
 
       mit.ui.nyanMode_timer.hide();
 
     },
 
-    applyNyanAttributes: function(){
+    transformtoInvin: function(){
+
+      this.invincible = 1;
+      this.invincibility_start = new Date().getTime();
+      this.invincibility_time = 5000;
+      // Show timer
+      mit.ui.invincible_timer.show();
+    },
+
+
+    tranformToNyan: function(){
+      this.nyanMode = 1;
+      this.nyanMode_start = new Date().getTime();
+      this.nyanMode_time = 5000;
+
+      // Show timer
+      mit.ui.nyanMode_timer.show();
+
+    },
+
+    nyanInitSprite: function(){
+
       this.sprite = mit.image.nyancat;
       this.nyanAttributes = 1;
 
@@ -83,7 +112,6 @@
       mit.Pappu.max_fly_frame_count--;
 
     },
-
     draw: function(ctx) {
       var cur_sprite_frame = this.fly_frame_count / this.change_per_frame;
       
@@ -147,11 +175,6 @@
       }
 
       if (this.nyanMode){
-        //console.debug("Sprite : " + this.sprite);
-
-        if (this.nyanAttributes == 0){
-          this.applyNyanAttributes();
-        }
         // Current time
         var cur_time = new Date().getTime();
         var time_diff = cur_time - this.nyanMode_start;
@@ -161,7 +184,7 @@
         if (timer_progress > 100)
           this.undoNyanMode();
         else
-          mit.ui.invincible_loader.css('width', timer_progress + '%');       
+          mit.ui.nyanMode_loader.css('width', timer_progress + '%');
       }
 
       ctx.drawImage(

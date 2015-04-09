@@ -10,7 +10,9 @@
 
   - One for pappu's invincibility
   */
-  
+
+  const RAINBOWS_MAX = 2;
+
   mit.Collectible = function() {
 
     // x/y pos
@@ -300,21 +302,13 @@
           case 'nyan':
             mit.nyanScore += 1;
 
-            if (mit.nyanScore == 3){
-              mit.Pappu.nyanMode = 1;
+            if (mit.nyanScore == RAINBOWS_MAX){
+              mit.Pappu.nyanInitSprite();
+              mit.Pappu.tranformToNyan();
               mit.nyanScore = 0;
+           }
 
-              mit.Pappu.invincible = 1;
-
-              mit.Pappu.invincibility_start = new Date().getTime();
-              mit.Pappu.invincibility_time = 5000;
-
-              // Show timer
-              mit.ui.invincible_timer.show();
-              break;
-
-            }
-
+            break;
         }
 
         // Nuke the collectible

@@ -41,7 +41,9 @@ mit.main = function() {
     fb: $('#fb'),
     fps_count: $('#fps_count'),
     invincible_timer: $('#invincible_timer'),
-    invincible_loader: $('#invincible_loader')
+    invincible_loader: $('#invincible_loader'),
+    nyanMode_timer: $('#nyanMode_timer'),
+    nyanMode_loader: $('#nyanMode_loader')
   };
 
   /*
