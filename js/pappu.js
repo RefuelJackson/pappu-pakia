@@ -9,7 +9,6 @@
     h: 50,
 
     invincible: 0,
-    nyanMode: 0,
     pappuHeight: 60,
     nyanHeight: 130,
     nyanMode_start: 0,
@@ -71,9 +70,7 @@
 
     undoNyanMode: function(){
       this.pappuMode();
-      this.nyanMode = 0;
-      this.nyanMode_start = 0;
-      this.nyanMode_timer = 0;
+      mit.nyanMode = 0;
 
       mit.ui.nyanMode_timer.hide();
       $("#nyan_score").attr("value", 0);
@@ -89,18 +86,8 @@
       mit.ui.invincible_timer.show();
     },
 
-
-    tranformToNyan: function(){
-      /*this.nyanMode_start = new Date().getTime();
-      this.nyanMode_time = 5000;
-
-      // Show timer
-      mit.ui.nyanMode_timer.show();*/
-
-    },
-
     nyanInitSprite: function(){
-      this.nyanMode = 1;
+      mit.nyanMode = 1;
 
       this.sprite = mit.image.nyancat;
       this.nyanAttributes = 1;
@@ -110,13 +97,13 @@
 
       mit.Pappu.max_fly_frame_count = 12;
       mit.Pappu.max_fly_frame_count--;
-
     },
+
     draw: function(ctx) {
       var cur_sprite_frame = this.fly_frame_count / this.change_per_frame;
       
       if (utils.isInt(cur_sprite_frame)) {
-        var source_y= cur_sprite_frame * ((!this.nyanMode) ? this.pappuHeight : this.nyanHeight);
+        var source_y= cur_sprite_frame * ((!mit.nyanMode) ? this.pappuHeight : this.nyanHeight);
        
       }
 
@@ -124,14 +111,14 @@
      
         // Ultra smooth animations
         var old_sprite_frame = parseInt(this.fly_frame_count/this.change_per_frame)
-        var source_y= old_sprite_frame * ((!this.nyanMode) ? this.pappuHeight : this.nyanHeight);
+        var source_y= old_sprite_frame * ((!mit.nyanMode) ? this.pappuHeight : this.nyanHeight);
 
       }
       
       // console.log(cur_sprite_frame, source_x);
 
       // Rotation on Flying
-      if (mit.flying_up) {
+      if (mit.flying_up && mit.nyanMode == 0) {
         this.sound.play();
 
         if (this.rotate_angle > -15) {
@@ -155,7 +142,9 @@
 
       ctx.translate(this.x, this.y);
       ctx.translate(this.w/2, this.h/2);
-      ctx.rotate(utils.toRadian(this.rotate_angle));
+
+      if(mit.nyanMode == 0)
+        ctx.rotate(utils.toRadian(this.rotate_angle));
 
       if (this.invincible) {
         ctx.globalAlpha = 0.4;
@@ -174,20 +163,10 @@
         // console.log(timer_progress)
       }
 
-      if (this.nyanMode){
+      if (mit.nyanMode){
           mit.nyanBar = mit.nyanBar - 1;
           $("#nyan_score").attr("value", mit.nyanBar);
           if (mit.nyanBar == 0) this.undoNyanMode(); 
-        // Current time
-        /*var cur_time = new Date().getTime();
-        var time_diff = cur_time - this.nyanMode_start;
-
-        var timer_progress = (time_diff/this.nyanMode_time) * 100;
-
-        if (timer_progress > 100)
-          this.undoNyanMode();
-        else
-          mit.ui.nyanMode_loader.css('width', timer_progress + '%');*/
       }
 
       ctx.drawImage(
@@ -195,11 +174,11 @@
           0,
           source_y,
           this.w,
-          ((!this.nyanMode) ? this.pappuHeight : this.nyanHeight),
+          ((!mit.nyanMode) ? this.pappuHeight : this.nyanHeight),
           -this.w/2,
           -this.h/2,
           this.w,
-          ((!this.nyanMode) ? this.pappuHeight : this.nyanHeight)
+          ((!mit.nyanMode) ? this.pappuHeight : this.nyanHeight)
         );
 
       ctx.restore();
@@ -209,7 +188,7 @@
       var cur_sprite_frame = this.fly_frame_count / this.change_per_frame;
       
       if (utils.isInt(cur_sprite_frame)) {
-        var source_y = cur_sprite_frame * ((!this.nyanMode) ? this.pappuHeight : this.nyanHeight);
+        var source_y = cur_sprite_frame * ((!mit.nyanMode) ? this.pappuHeight : this.nyanHeight);
       }
 
       else {
@@ -217,7 +196,7 @@
 
         // Ultra smooth animations
         var old_sprite_frame = parseInt(this.fly_frame_count/this.change_per_frame)
-        var source_y = old_sprite_frame * ((!this.nyanMode) ? this.pappuHeight : this.nyanHeight);
+        var source_y = old_sprite_frame * ((!mit.nyanMode) ? this.pappuHeight : this.nyanHeight);
       }
 
 

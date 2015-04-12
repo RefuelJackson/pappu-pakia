@@ -146,6 +146,7 @@ mit.main = function() {
     mit.score = 0;
     mit.nyanScore = 0;
     mit.nyanBar = 0;
+    mit.nyanMode = 0;
 
     // Nuke all forks
     mit.ForkUtils.forks = [];
@@ -407,7 +408,7 @@ mit.main = function() {
       mit.Pappu.drawClones(ctx);
 
       // Check Collisions with pappu
-      if (!mit.Pappu.nyanMode && !mit.Pappu.invincible) {
+      if (!mit.nyanMode && !mit.Pappu.invincible) {
         //alert("not invincible or not nyan mode");
         mit.ForkUtils.checkCollision();
         mit.BranchUtils.checkCollision();

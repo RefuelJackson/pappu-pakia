@@ -289,11 +289,10 @@
               mit.nyanBar += 200;
               $("#nyan_score").attr("value", mit.nyanBar);
           
-            if (mit.nyanBar >= 1000 && mit.Pappu.nyanMode == 0){
+            if (mit.nyanBar >= 200 && mit.nyanMode == 0){
               mit.Pappu.nyanInitSprite();
-              mit.Pappu.tranformToNyan();
               mit.nyanScore = 0;
-           }
+            }
 
             break;
         }
