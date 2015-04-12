@@ -75,9 +75,9 @@
       this.nyanMode_start = 0;
       this.nyanMode_timer = 0;
 
-
       mit.ui.nyanMode_timer.hide();
-
+      $("#nyan_score").attr("value", 0);
+      mit.nyanBar = 0;
     },
 
     transformtoInvin: function(){
@@ -91,11 +91,11 @@
 
 
     tranformToNyan: function(){
-      this.nyanMode_start = new Date().getTime();
+      /*this.nyanMode_start = new Date().getTime();
       this.nyanMode_time = 5000;
 
       // Show timer
-      mit.ui.nyanMode_timer.show();
+      mit.ui.nyanMode_timer.show();*/
 
     },
 
@@ -175,8 +175,11 @@
       }
 
       if (this.nyanMode){
+          mit.nyanBar = mit.nyanBar - 1;
+          $("#nyan_score").attr("value", mit.nyanBar);
+          if (mit.nyanBar == 0) this.undoNyanMode(); 
         // Current time
-        var cur_time = new Date().getTime();
+        /*var cur_time = new Date().getTime();
         var time_diff = cur_time - this.nyanMode_start;
 
         var timer_progress = (time_diff/this.nyanMode_time) * 100;
@@ -184,7 +187,7 @@
         if (timer_progress > 100)
           this.undoNyanMode();
         else
-          mit.ui.nyanMode_loader.css('width', timer_progress + '%');
+          mit.ui.nyanMode_loader.css('width', timer_progress + '%');*/
       }
 
       ctx.drawImage(

@@ -11,7 +11,8 @@
   - One for pappu's invincibility
   */
 
-  const RAINBOWS_MAX = 1;
+  const RAINBOWS_MAX = 5;
+  const max = 5;
 
   mit.Collectible = function() {
 
@@ -283,9 +284,12 @@
             break;
 
           case 'nyan':
-            mit.nyanScore += 1;
+            mit.nyanBar = $("#nyan_score").attr("value");
 
-            if (mit.nyanScore == RAINBOWS_MAX){
+              mit.nyanBar += 200;
+              $("#nyan_score").attr("value", mit.nyanBar);
+          
+            if (mit.nyanBar >= 1000 && mit.Pappu.nyanMode == 0){
               mit.Pappu.nyanInitSprite();
               mit.Pappu.tranformToNyan();
               mit.nyanScore = 0;

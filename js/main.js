@@ -145,6 +145,7 @@ mit.main = function() {
     // reset score
     mit.score = 0;
     mit.nyanScore = 0;
+    mit.nyanBar = 0;
 
     // Nuke all forks
     mit.ForkUtils.forks = [];
