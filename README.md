@@ -1,6 +1,6 @@
 # Pappu Pakia Fighter Cat:
 
-We've given Pappu a special treat. What happens when he collects 3 rainbow powerups?
+We've given Pappu a special treat. What happens when he collects rainbow powerups?
 
 Here's a little hint... nyan nyan nyan! Enjoy!
 
