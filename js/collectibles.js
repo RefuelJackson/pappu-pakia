@@ -13,6 +13,8 @@
 
   const RAINBOWS_MAX = 5;
   const max = 5;
+  const RAINBOW_POINTS = 200;
+  const MAX_RAINBOW_POINTS = 600;
 
   mit.Collectible = function() {
 
@@ -222,7 +224,8 @@
 
         // Type
         collec.type = this.types[utils.randomNumber(0, this.types.length-1)];
-        collec.type = this.types[3];
+
+        //collec.type = this.types[3];
 
         // Choosing Sub types if any
         sub_types = this.sub_types[collec.type];
@@ -286,10 +289,10 @@
           case 'nyan':
             mit.nyanBar = $("#nyan_score").attr("value");
 
-              mit.nyanBar += 200;
+              mit.nyanBar += RAINBOW_POINTS;
               $("#nyan_score").attr("value", mit.nyanBar);
           
-            if (mit.nyanBar >= 200 && mit.nyanMode == 0){
+            if (mit.nyanBar >= MAX_RAINBOW_POINTS && mit.nyanMode == 0){
               mit.Pappu.nyanInitSprite();
               mit.nyanScore = 0;
               mit.Pappu.changeMusic();
