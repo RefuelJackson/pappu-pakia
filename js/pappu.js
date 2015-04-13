@@ -61,7 +61,7 @@
     },
 
     undoInvincible: function() {
-      this.invincible = 1;
+      this.invincible = 0;
       this.invincibility_start = 0;
       this.invincible_timer = 0;
 

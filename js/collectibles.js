@@ -13,7 +13,7 @@
 
   const RAINBOWS_MAX = 5;
   const max = 5;
-  const RAINBOW_POINTS = 600;
+  const RAINBOW_POINTS = 200;
   const MAX_RAINBOW_POINTS = 600;
 
   mit.Collectible = function() {
