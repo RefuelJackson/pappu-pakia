@@ -7,7 +7,7 @@ Here's a little hint... nyan nyan nyan! Enjoy!
 ## Developers that modified the original project:
 This game was modified based on the original pappu-pakia game found here: https://github.com/mindd-it/pappu-pakia
 
-The modifiers: Liline, omegadeath, gage
+The modifiers: [liline](https://github.com/liline), [omegadeath88](https://github.com/omegadeath88), [gage](https://github.com/glennong)
 
 # Pappu Pakia Original Information:
 ## Original Credits:
