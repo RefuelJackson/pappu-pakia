@@ -1,8 +1,15 @@
-# Pappu Pakia Fighter Cat
+# Pappu Pakia Fighter Cat:
 
+We've given Pappu a special treat. What happens when he collects 3 rainbow powerups?
+
+Here's a little hint... nyan nyan nyan! Enjoy!
+
+## Developers that modified the original project:
 This game was modified based on the original pappu-pakia game found here: https://github.com/mindd-it/pappu-pakia
 
+The modifiers: Liline, omegadeath, gage
 
+# Pappu Pakia Original Information:
 ## Original Credits:
 
 Handsomely coded by [Rishabh](http://twitter.com/_rishabhp).
