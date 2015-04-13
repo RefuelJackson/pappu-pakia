@@ -82,6 +82,7 @@ mit.main = function() {
   bg_canvas.height = canvas.height;
 
   var music = document.getElementById("start");
+  var music2 = document.getElementById("nyanMusic");
   music.volume = 0.2;
   
   var isMute = false;
@@ -91,12 +92,14 @@ mit.main = function() {
     if(isMute == false) {
       $(this).css("backgroundPosition", "0px -40px");
       music.volume = 0;
+      music2.volume = 0;
       isMute = true;
     }
 
     else {
       $(this).css("backgroundPosition", "0px 0px");
       music.volume = 0.2;
+      music2.volume = 0.2;
       isMute = false;
     }
 
