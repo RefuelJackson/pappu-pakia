@@ -1,13 +1,9 @@
-# Pappu Pakia
+# Pappu Pakia Fighter Cat
 
-![Pappu Pakia](http://i.imgur.com/zYD37.png)
+This game was modified based on the original pappu-pakia game found here: https://github.com/mindd-it/pappu-pakia
 
-This HTML5 Game (Pappu Pakia) has been happily made for the
-[Github Game Off 2012](https://github.com/blog/1303-github-game-off).
 
-**[PLAY THE GAME HERE](http://khele.in/pappu-pakia/)**
-
-## Credits
+## Original Credits:
 
 Handsomely coded by [Rishabh](http://twitter.com/_rishabhp).
 Beautiful graphics by [Kushagra](http://twitter.com/solitarydesigns).
