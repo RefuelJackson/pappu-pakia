@@ -61,11 +61,15 @@
     },
 
     undoInvincible: function() {
-      this.invincible = 0;
+      this.invincible = 1;
       this.invincibility_start = 0;
       this.invincible_timer = 0;
 
       mit.ui.invincible_timer.hide();
+
+      if(mit.nyanMode == 0){
+        this.sprite = mit.image.pappu;
+      }
     },
 
     undoNyanMode: function(){
