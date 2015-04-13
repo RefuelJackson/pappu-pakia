@@ -90,7 +90,7 @@
       // Combined BG Image
       // this.combined_bg_img = new Image();
       // this.combined_bg_img.src = 'img/bg_combined.png';
-      this.combined_bg_img = mit.image.bg_combined;
+      this.combined_bg_img = mit.image.bg_rainbow;
 
       // Reset all speed
       this.resetAllSpeed();
@@ -389,14 +389,17 @@
         ctx.fillRect(0, 0, mit.W, mit.H);
         ctx.restore();
 
-        // Clouds
-        this.drawClouds(ctx);
-        
-        // Back Small Trees
-        this.drawBackTrees(ctx);
 
-        // Front Big Trees
-        this.drawFrontTrees(ctx);
+        if (mit.nyanMode !=1){
+          this.drawClouds(ctx);        
+          // Back Small Trees
+          this.drawBackTrees(ctx);
+          // Front Big Trees
+          this.drawFrontTrees(ctx);
+        }
+        else {
+          this.drawCombinedBG(ctx);
+        }
       }
       else {
         this.drawCombinedBG(ctx);

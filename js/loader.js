@@ -35,6 +35,7 @@
     backtrees : "img/back_trees.png",
     berries : "img/berries.png",
     bg_combined: "img/bg_combined.png",
+    bg_rainbow: "img/bg_nyan_sky_with_stars.png",
     branch : "img/branch.png",
     clouds : "img/clouds.png",
     coins : "img/coins.png",
