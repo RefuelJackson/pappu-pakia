@@ -4,7 +4,7 @@ We've given Pappu a special treat. What happens when he collects 3 rainbow power
 
 Here's a little hint... nyan nyan nyan! Enjoy!
 
-![alt tag](nyan_screen.jpg)
+![alt tag](nyan_screen2.jpg)
 
 ## Developers that modified the original project:
 This game was modified based on the original pappu-pakia game found here: https://github.com/mindd-it/pappu-pakia
