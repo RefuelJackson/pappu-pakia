@@ -10,7 +10,7 @@
 
     invincible: 0,
     pappuHeight: 60,
-    nyanHeight: 130,
+    nyanHeight: 65,
     nyanMode_start: 0,
     nyanMode_time: 0,
     invincibility_start: 0,
