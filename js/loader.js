@@ -50,8 +50,6 @@
     log : "img/log.png",
     pappu : "img/pappu.png",
     plank_bot : "img/plank_bot.png",
-    plank_mid : "img/plank_mid.png",
-    plank_top : "img/plank_top.png",
     sad_pakia : "img/sad_pakia.png",
     stand : "img/stand.png",
     star : "img/star.png",
