@@ -292,6 +292,7 @@
             if (mit.nyanBar >= 200 && mit.nyanMode == 0){
               mit.Pappu.nyanInitSprite();
               mit.nyanScore = 0;
+              mit.Pappu.changeMusic();
             }
 
             break;

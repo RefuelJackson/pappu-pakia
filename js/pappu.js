@@ -72,7 +72,6 @@
       this.pappuMode();
       mit.nyanMode = 0;
 
-      mit.ui.nyanMode_timer.hide();
       $("#nyan_score").attr("value", 0);
       mit.nyanBar = 0;
 
@@ -98,19 +97,17 @@
 
       mit.Pappu.max_fly_frame_count = 12;
       mit.Pappu.max_fly_frame_count--;
-
-      this.changeMusic();
     },
 
     changeMusic: function(){
-      var audio = document.getElementById('start');
-      var source = document.getElementById('music');
-
-      if(mit.nyanMode == 1) source.src= 'sound/Nyan Cat.mp3';
-      else source.src= 'sound/pappu-pakia.2.3.mp3';
-
-      audio.load();
-      audio.play();
+      if(mit.nyanMode == 1){
+        document.getElementById('start').pause();
+        document.getElementById('nyanMusic').play();
+      } 
+      else{
+        document.getElementById('start').play();
+        document.getElementById('nyanMusic').pause();
+      } 
     },
 
     draw: function(ctx) {

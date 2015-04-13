@@ -15,7 +15,8 @@
       loadSad = document.getElementById("sad_jump"),
       loadHappy = document.getElementById("happy_jump"),
       loadFlap = document.getElementById("flap"),
-      loadTing = document.getElementById("ting");
+      loadTing = document.getElementById("ting"),
+      loadNyanMusic = document.getElementById("nyanMusic");
 
   // Preloading image stuff
 
@@ -26,6 +27,7 @@
     loadHappy,
     loadFlap, 
     loadTing,
+    loadNyanMusic
   ];
 
   var images = {
